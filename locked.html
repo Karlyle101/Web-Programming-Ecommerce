@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Account Locked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a href="index.html">Campus Cart</a>
+            <nav>
+                <a href="index.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="product.html">Products</a>
+            </nav>
+        </header>
+
+        <section class="layout">
+            <article class="intro-card">
+                <p class="eyebrow">Security Notice</p>
+                <h1>Your account is temporarily locked</h1>
+                <p>
+                    The system recorded three failed login attempts for this TRN. Use the password reset page to regain access.
+                </p>
+                <div class="info-list">
+                    <div>
+                        <strong>Reason</strong>
+                        Maximum login attempts reached.
+                    </div>
+                    <div>
+                        <strong>Recovery</strong>
+                        Resetting the password also clears the failed attempt counter.
+                    </div>
+                </div>
+            </article>
+
+            <article class="form-card">
+                <p class="eyebrow">Locked Page</p>
+                <h1>Next step</h1>
+                <p>Continue to the reset page and set a new password for your TRN.</p>
+
+                <div class="actions">
+                    <button class="primary-button" id="goToReset" type="button">Go to Reset Password</button>
+                    <a class="secondary-button" href="index.html">Back to Login</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+</body>
+</html>

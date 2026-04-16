@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a href="index.html">Campus Cart</a>
+            <nav>
+                <a href="index.html">Login</a>
+                <a href="register.html" class="active">Register</a>
+                <a href="product.html">Products</a>
+            </nav>
+        </header>
+
+        <section class="layout">
+            <article class="intro-card">
+                <p class="eyebrow">Person 1: Register</p>
+                <h1>Create a valid customer record</h1>
+                <p>
+                    Registration stores each user in <code>RegistrationData</code> as an array of objects, with cart and invoice placeholders ready for the next teammates.
+                </p>
+                <div class="info-list">
+                    <div>
+                        <strong>Age check</strong>
+                        User must be at least 18 years old.
+                    </div>
+                    <div>
+                        <strong>TRN rules</strong>
+                        TRN must match <code>000-000-000</code> and stay unique.
+                    </div>
+                    <div>
+                        <strong>Password rules</strong>
+                        Password must contain at least 8 characters.
+                    </div>
+                </div>
+            </article>
+
+            <article class="form-card">
+                <p class="eyebrow">Registration Form</p>
+                <h1>New account</h1>
+                <p>Complete every field before storing the record.</p>
+
+                <div id="registerMessage" class="hidden"></div>
+
+                <form id="registerForm" novalidate>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" name="firstName" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="lastName">Last Name</label>
+                            <input id="lastName" name="lastName" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="dob">Date of Birth</label>
+                            <input id="dob" name="dob" type="date" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Phone Number</label>
+                            <input id="phone" name="phone" type="tel" placeholder="876-000-0000" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="trn">TRN</label>
+                            <input id="trn" name="trn" type="text" placeholder="000-000-000" maxlength="11" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" minlength="8" required>
+                        </div>
+
+                        <div class="field full">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" required>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="primary-button" type="submit">Register</button>
+                        <button class="secondary-button" id="registerCancel" type="button">Cancel</button>
+                    </div>
+
+                    <div class="page-note">
+                        Registration also signs the user in by saving their object under <code>CurrentUser</code>.
+                    </div>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+</body>
+</html>

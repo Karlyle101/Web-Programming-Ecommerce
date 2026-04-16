@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Shopping Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="product.html">Campus Cart</a>
+            <nav>
+                <a href="index.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="product.html">Products</a>
+                <a href="cart.html" class="active">Cart</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <article class="card">
+                <p class="eyebrow">Person 3: Cart</p>
+                <h1>Review everything before checkout</h1>
+                <p class="hero-copy">
+                    This page lets the signed-in user update quantities, remove items, clear the cart, and calculate subtotal, discount, tax, and final total.
+                </p>
+            </article>
+
+            <aside class="card stats">
+                <div class="stat-box">
+                    <span class="stat-label">Signed in user</span>
+                    <span id="cartUserName" class="stat-value">Guest visitor</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Cart items</span>
+                    <span id="cartItemCount" class="stat-value">0</span>
+                </div>
+            </aside>
+        </section>
+
+        <section id="cartLayout" class="layout hidden">
+            <article class="card">
+                <h2>Your items</h2>
+                <div id="cartItems" class="items-list"></div>
+            </article>
+
+            <aside class="card">
+                <h2>Cart summary</h2>
+                <div class="summary-lines">
+                    <div class="summary-row"><span>Subtotal</span><span id="subtotalValue">$0.00</span></div>
+                    <div class="summary-row"><span>Discount</span><span id="discountValue">$0.00</span></div>
+                    <div class="summary-row"><span>Tax</span><span id="taxValue">$0.00</span></div>
+                    <div class="summary-total"><span>Total</span><span id="totalValue">$0.00</span></div>
+                </div>
+
+                <div class="action-stack">
+                    <button id="clearCartBtn" class="danger-button" type="button">Clear All</button>
+                    <a href="checkout.html" id="checkoutBtn" class="primary-button">Check Out</a>
+                    <a href="product.html" class="secondary-button">Close</a>
+                </div>
+
+                <p class="inline-note">
+                    Discount rule used here: 10% off any line item with quantity 3 or more. Tax is calculated at 15%.
+                </p>
+            </aside>
+        </section>
+
+        <section id="emptyState" class="card empty-card hidden">
+            <p class="eyebrow">Cart Status</p>
+            <h2>Your cart is empty</h2>
+            <p>Add products from the catalogue before continuing to checkout.</p>
+            <a href="product.html" class="primary-button">Back to Products</a>
+        </section>
+
+        <section id="guestState" class="card empty-card hidden">
+            <p class="eyebrow">Login Required</p>
+            <h2>You need to sign in first</h2>
+            <p>Cart and checkout are tied to the currently signed-in user record.</p>
+            <a href="index.html" class="primary-button">Go to Login</a>
+        </section>
+    </main>
+
+    <script src="cart.js"></script>
+</body>
+</html>

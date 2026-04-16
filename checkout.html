@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="product.html">Campus Cart</a>
+            <nav>
+                <a href="index.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="product.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html" class="active">Checkout</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <article class="card">
+                <p class="eyebrow">Person 3: Checkout</p>
+                <h1>Collect shipping and payment details</h1>
+                <p class="hero-copy">
+                    Checkout confirms the cart summary, validates payment, stores the completed checkout data, and prepares the order for Person 4's invoice generation.
+                </p>
+            </article>
+
+            <aside class="card stats">
+                <div class="stat-box">
+                    <span class="stat-label">Checkout owner</span>
+                    <span id="checkoutUserName" class="stat-value">Guest visitor</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Items ready</span>
+                    <span id="checkoutItemCount" class="stat-value">0</span>
+                </div>
+            </aside>
+        </section>
+
+        <section id="checkoutContent" class="checkout-grid hidden">
+            <article class="card">
+                <h2>Shipping and payment form</h2>
+                <div id="checkoutMessage" class="hidden"></div>
+
+                <form id="checkoutForm" novalidate>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="fullName">Full Name</label>
+                            <input id="fullName" name="fullName" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Phone Number</label>
+                            <input id="phone" name="phone" type="tel" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="parish">Parish</label>
+                            <select id="parish" name="parish" required>
+                                <option value="">Select parish</option>
+                                <option value="Kingston">Kingston</option>
+                                <option value="St. Andrew">St. Andrew</option>
+                                <option value="St. Catherine">St. Catherine</option>
+                                <option value="Clarendon">Clarendon</option>
+                                <option value="Manchester">Manchester</option>
+                                <option value="St. James">St. James</option>
+                            </select>
+                        </div>
+
+                        <div class="field full">
+                            <label for="address">Delivery Address</label>
+                            <textarea id="address" name="address" required></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Select payment method</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Cash on Delivery">Cash on Delivery</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="amountPaid">Amount Being Paid</label>
+                            <input id="amountPaid" name="amountPaid" type="number" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="field full">
+                            <label for="notes">Order Notes</label>
+                            <textarea id="notes" name="notes" placeholder="Optional delivery notes"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="action-stack">
+                        <button class="primary-button" type="submit">Confirm Checkout</button>
+                        <a href="cart.html" class="secondary-button">Cancel</a>
+                    </div>
+                </form>
+            </article>
+
+            <aside class="card">
+                <h2>Order summary</h2>
+                <div id="checkoutItems" class="items-list"></div>
+                <div class="summary-lines">
+                    <div class="summary-row"><span>Subtotal</span><span id="checkoutSubtotal">$0.00</span></div>
+                    <div class="summary-row"><span>Discount</span><span id="checkoutDiscount">$0.00</span></div>
+                    <div class="summary-row"><span>Tax</span><span id="checkoutTax">$0.00</span></div>
+                    <div class="summary-total"><span>Total</span><span id="checkoutTotal">$0.00</span></div>
+                </div>
+                <p class="inline-note">
+                    When confirmed, the checkout is stored under <code>PendingCheckout</code> and appended to <code>AllCheckouts</code> for the invoice stage.
+                </p>
+            </aside>
+        </section>
+
+        <section id="checkoutGuestState" class="card empty-card hidden">
+            <p class="eyebrow">Login Required</p>
+            <h2>You need to sign in first</h2>
+            <p>Checkout uses the current user record and cart data saved in localStorage.</p>
+            <a href="index.html" class="primary-button">Go to Login</a>
+        </section>
+
+        <section id="checkoutEmptyState" class="card empty-card hidden">
+            <p class="eyebrow">No Items</p>
+            <h2>Your cart is empty</h2>
+            <p>Add items to the cart before opening checkout.</p>
+            <a href="product.html" class="primary-button">Back to Products</a>
+        </section>
+    </main>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

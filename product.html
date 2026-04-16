@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Product Catalogue</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="product.html">Campus Cart</a>
+            <div class="nav-links">
+                <a href="index.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="product.html" class="active">Products</a>
+                <a href="cart.html">Cart</a>
+                <button id="logoutBtn" class="ghost-button" type="button">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="hero-card">
+            <div>
+                <p class="eyebrow">Person 2: Store Front</p>
+                <h1>Browse the product catalogue</h1>
+                <p class="hero-copy">
+                    This page reads products from <code>AllProducts</code> in localStorage and lets a signed-in user add items to their personal cart.
+                </p>
+            </div>
+            <aside class="status-panel">
+                <p class="status-label">Signed in as</p>
+                <p id="welcomeUser" class="status-value">Guest visitor</p>
+                <p class="status-note">Login is required before items can be added to cart.</p>
+            </aside>
+        </section>
+
+        <section class="toolbar">
+            <label for="priceFilter">Sort by price</label>
+            <select id="priceFilter">
+                <option value="default">Default order</option>
+                <option value="low-high">Low to high</option>
+                <option value="high-low">High to low</option>
+            </select>
+        </section>
+
+        <section class="products-section">
+            <div id="productContainer" class="product-grid"></div>
+            <div id="noProducts" class="empty-state hidden">
+                <h2>No products available</h2>
+                <p>Add items to <code>AllProducts</code> or refresh the page to re-seed the default catalogue.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script src="product.js"></script>
+</body>
+</html>
