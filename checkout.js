@@ -1,7 +1,7 @@
 /* ========================================
-   PERSON 3: CHECKOUT PAGE
+   CHECKOUT PAGE
    Purpose: Confirm shipping and payment details for the current cart
-   and store checkout data for the invoice stage.
+   and store checkout data for invoice generation.
    ======================================== */
 
 const CHECKOUT_TAX_RATE = 0.15;
@@ -206,14 +206,15 @@ function setupPage() {
         return null;
     }
 
-    showState("content");
-    const totals = renderSummary(cart);
+        showState("content");
+        const totals = renderSummary(cart);
 
-    document.getElementById("fullName").value = `${user.firstName} ${user.lastName}`;
-    document.getElementById("phone").value = user.phone || "";
-    document.getElementById("email").value = user.email || "";
+        document.getElementById("fullName").value = `${user.firstName} ${user.lastName}`;
+        document.getElementById("phone").value = user.phone || "";
+        document.getElementById("email").value = user.email || "";
+        document.getElementById("amountPaid").value = totals.total.toFixed(2);
 
-    return { user, cart, totals };
+        return { user, cart, totals };
 }
 
 function setupForm(pageData) {
@@ -250,11 +251,11 @@ function setupForm(pageData) {
 
         form.reset();
         showMessage(
-            `Checkout confirmed. Record ${checkoutRecord.checkoutId} is saved and ready for the invoice stage.`,
+            `Checkout confirmed. Record ${checkoutRecord.checkoutId} is saved and ready for invoice generation.`,
             "success"
         );
         window.setTimeout(() => {
-            window.location.href = "product.html";
+            window.location.href = "invoice.html";
         }, 1800);
     });
 }

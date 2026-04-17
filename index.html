@@ -1,25 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
+    <main class="shell">
+        <header class="topbar">
+            <a href="index.html">Campus Cart</a>
+            <nav>
+                <a href="index.html" class="active" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <a href="product.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="invoice.html">Invoice</a>
+                <a href="dashboard.html">Dashboard</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
+                <a href="#" data-user-link data-logout style="display:none;">Logout</a>
+            </nav>
+        </header>
 
-<h2>Login</h2>
+        <section class="layout">
+            <article class="intro-card">
+                <p class="eyebrow">Login</p>
+                <h1>Sign in with your TRN</h1>
+                <p>
+                    Users get three chances to enter the correct TRN and password. After that, they are sent to the account locked page.
+                </p>
+                <div class="info-list">
+                    <div>
+                        <strong>Login field</strong>
+                        TRN is used instead of a username.
+                    </div>
+                    <div>
+                        <strong>Attempt control</strong>
+                        Failed attempts are stored in localStorage.
+                    </div>
+                    <div>
+                        <strong>Next page</strong>
+                        Successful login redirects the user to the product catalogue.
+                    </div>
+                </div>
+            </article>
 
-<form>
-  <input type="text" id="loginTRN" placeholder="TRN" required><br>
-  <input type="password" id="loginPassword" placeholder="Password" required><br>
+            <article class="form-card">
+                <p class="eyebrow">Welcome Back</p>
+                <h1>Welcome back</h1>
+                <p>Use the same TRN and password created during registration.</p>
 
-  <button type="button" onclick="loginUser()">Login</button>
-  <button type="reset">Cancel</button>
-</form>
+                <div id="loginMessage" class="hidden"></div>
 
-<p><a href="#" onclick="resetPassword()">Reset Password</a></p>
+                <form id="loginForm" novalidate>
+                    <div class="field">
+                        <label for="loginTrn">TRN</label>
+                        <input id="loginTrn" name="trn" type="text" placeholder="000-000-000" maxlength="11" required>
+                    </div>
 
-<p id="loginMsg"></p>
+                    <div class="field">
+                        <label for="loginPassword">Password</label>
+                        <input id="loginPassword" name="password" type="password" placeholder="Enter your password" required>
+                    </div>
 
-<script src="auth.js"></script>
+                    <div class="helper-text">
+                        If you are locked out or forgot your password, use the reset link below.
+                    </div>
+
+                    <div class="actions">
+                        <button class="primary-button" type="submit">Login</button>
+                        <button class="secondary-button" id="loginCancel" type="button">Cancel</button>
+                    </div>
+
+                    <div class="link-row">
+                        <a href="reset-password.html">Reset Password</a>
+                        <a href="register.html">Need an account?</a>
+                    </div>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

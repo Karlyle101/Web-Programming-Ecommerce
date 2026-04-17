@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Invoice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="records.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="product.html">Campus Cart</a>
+            <nav>
+                <a href="index.html" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
+                <a href="product.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="invoice.html" class="active">Invoice</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#" data-user-link data-logout style="display:none;">Logout</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <article class="card">
+                <p class="eyebrow">Invoice</p>
+                <h1>Invoice details and payment record</h1>
+                <p class="hero-copy">
+                    This page converts the latest confirmed checkout into a stored invoice, saves it in <code>AllInvoices</code>,
+                    and appends it to the matching user's invoice history.
+                </p>
+            </article>
+
+            <aside class="card stats">
+                <div class="stat-box">
+                    <span class="stat-label">Invoice Number</span>
+                    <span id="invoiceNumberBadge" class="stat-value">Not generated</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Invoice Date</span>
+                    <span id="invoiceDateBadge" class="stat-value">Waiting</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Stored Invoices</span>
+                    <span id="storedInvoiceCount" class="stat-value">0</span>
+                </div>
+            </aside>
+        </section>
+
+        <section id="invoiceContent" class="invoice-layout hidden">
+            <article class="card">
+                <div class="invoice-header">
+                    <div>
+                        <p class="eyebrow">Invoice Document</p>
+                        <div class="invoice-company">Campus Cart</div>
+                        <div class="invoice-contact">
+                            <p>Invoice No: <strong id="invoiceNumber"></strong></p>
+                            <p>Date: <strong id="invoiceDate"></strong></p>
+                            <p>TRN: <strong id="invoiceTrn"></strong></p>
+                        </div>
+                    </div>
+                    <div class="invoice-meta">
+                        <p><strong>Ship To</strong></p>
+                        <p id="shipName"></p>
+                        <p id="shipEmail"></p>
+                        <p id="shipPhone"></p>
+                        <p id="shipAddress"></p>
+                    </div>
+                </div>
+
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Subtotal</th>
+                            <th>Discount</th>
+                            <th>Tax</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItems"></tbody>
+                </table>
+            </article>
+
+            <aside class="card">
+                <h2>Payment summary</h2>
+                <div class="totals-list">
+                    <div class="total-row"><span>Subtotal</span><span id="summarySubtotal"></span></div>
+                    <div class="total-row"><span>Discount</span><span id="summaryDiscount"></span></div>
+                    <div class="total-row"><span>Tax</span><span id="summaryTax"></span></div>
+                    <div class="grand-total"><span>Total</span><span id="summaryTotal"></span></div>
+                    <div class="total-row"><span>Amount Paid</span><span id="summaryPaid"></span></div>
+                    <div class="total-row"><span>Change Due</span><span id="summaryChange"></span></div>
+                    <div class="total-row"><span>Payment Method</span><span id="summaryMethod"></span></div>
+                </div>
+
+                <div class="action-stack">
+                    <a href="dashboard.html" class="primary-button">Open Dashboard</a>
+                    <a href="product.html" class="secondary-button">Back to Products</a>
+                </div>
+            </aside>
+        </section>
+
+        <section id="invoiceHistoryCard" class="card hidden">
+            <h2>Recent invoices</h2>
+            <div id="invoiceHistoryList" class="user-invoice-list"></div>
+        </section>
+
+        <section id="emptyInvoiceState" class="card empty-card hidden">
+            <p class="eyebrow">Status</p>
+            <h2>No invoice is ready yet</h2>
+            <p>Complete checkout first, then come back here to generate and view the invoice.</p>
+            <a href="checkout.html" class="primary-button">Go to Checkout</a>
+        </section>
+    </main>
+
+    <script src="records.js"></script>
+    <script src="invoice.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

@@ -14,11 +14,15 @@
         <nav class="navbar">
             <a class="brand" href="product.html">Campus Cart</a>
             <div class="nav-links">
-                <a href="index.html">Login</a>
-                <a href="register.html">Register</a>
+                <a href="index.html" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
                 <a href="product.html" class="active">Products</a>
                 <a href="cart.html">Cart</a>
-                <button id="logoutBtn" class="ghost-button" type="button">Logout</button>
+                <a href="checkout.html">Checkout</a>
+                <a href="invoice.html">Invoice</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#" id="logoutBtn" class="ghost-button" data-user-link data-logout style="display:none;">Logout</a>
             </div>
         </nav>
     </header>
@@ -26,7 +30,7 @@
     <main class="page-shell">
         <section class="hero-card">
             <div>
-                <p class="eyebrow">Person 2: Store Front</p>
+                <p class="eyebrow">Storefront</p>
                 <h1>Browse the product catalogue</h1>
                 <p class="hero-copy">
                     This page reads products from <code>AllProducts</code> in localStorage and lets a signed-in user add items to their personal cart.
@@ -60,5 +64,6 @@
     <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
     <script src="product.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

@@ -14,16 +14,21 @@
         <header class="topbar">
             <a class="brand" href="product.html">Campus Cart</a>
             <nav>
-                <a href="index.html">Login</a>
-                <a href="register.html">Register</a>
+                <a href="index.html" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
                 <a href="product.html">Products</a>
                 <a href="cart.html" class="active">Cart</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="invoice.html">Invoice</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#" data-user-link data-logout style="display:none;">Logout</a>
             </nav>
         </header>
 
         <section class="hero">
             <article class="card">
-                <p class="eyebrow">Person 3: Cart</p>
+                <p class="eyebrow">Shopping Cart</p>
                 <h1>Review everything before checkout</h1>
                 <p class="hero-copy">
                     This page lets the signed-in user update quantities, remove items, clear the cart, and calculate subtotal, discount, tax, and final total.
@@ -70,7 +75,7 @@
         </section>
 
         <section id="emptyState" class="card empty-card hidden">
-            <p class="eyebrow">Cart Status</p>
+            <p class="eyebrow">Status</p>
             <h2>Your cart is empty</h2>
             <p>Add products from the catalogue before continuing to checkout.</p>
             <a href="product.html" class="primary-button">Back to Products</a>
@@ -85,5 +90,6 @@
     </main>
 
     <script src="cart.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

@@ -14,26 +14,30 @@
         <header class="topbar">
             <a class="brand" href="product.html">Campus Cart</a>
             <nav>
-                <a href="index.html">Login</a>
-                <a href="register.html">Register</a>
+                <a href="index.html" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
                 <a href="product.html">Products</a>
                 <a href="cart.html">Cart</a>
                 <a href="checkout.html" class="active">Checkout</a>
+                <a href="invoice.html">Invoice</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#" data-user-link data-logout style="display:none;">Logout</a>
             </nav>
         </header>
 
         <section class="hero">
             <article class="card">
-                <p class="eyebrow">Person 3: Checkout</p>
+                <p class="eyebrow">Checkout</p>
                 <h1>Collect shipping and payment details</h1>
                 <p class="hero-copy">
-                    Checkout confirms the cart summary, validates payment, stores the completed checkout data, and prepares the order for Person 4's invoice generation.
+                    Checkout confirms the cart summary, validates payment, stores the completed checkout data, and prepares the order for invoice generation.
                 </p>
             </article>
 
             <aside class="card stats">
                 <div class="stat-box">
-                    <span class="stat-label">Checkout owner</span>
+                    <span class="stat-label">Customer</span>
                     <span id="checkoutUserName" class="stat-value">Guest visitor</span>
                 </div>
                 <div class="stat-box">
@@ -122,7 +126,7 @@
                     <div class="summary-total"><span>Total</span><span id="checkoutTotal">$0.00</span></div>
                 </div>
                 <p class="inline-note">
-                    When confirmed, the checkout is stored under <code>PendingCheckout</code> and appended to <code>AllCheckouts</code> for the invoice stage.
+                    When confirmed, the checkout is stored under <code>PendingCheckout</code> and appended to <code>AllCheckouts</code> for invoice generation.
                 </p>
             </aside>
         </section>
@@ -143,5 +147,6 @@
     </main>
 
     <script src="checkout.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

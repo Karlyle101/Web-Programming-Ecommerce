@@ -63,6 +63,14 @@ body {
     border-radius: 999px;
 }
 
+.nav-user {
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.96);
+    color: var(--text);
+    font-weight: 600;
+}
+
 .topbar nav a.active,
 .topbar nav a:hover {
     background: rgba(255, 248, 240, 0.96);

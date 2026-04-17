@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Cart | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="records.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="product.html">Campus Cart</a>
+            <nav>
+                <a href="index.html" data-guest-link>Login</a>
+                <a href="register.html" data-guest-link>Register</a>
+                <span class="nav-user" data-user-name style="display:none;"></span>
+                <a href="product.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="invoice.html">Invoice</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="#" data-user-link data-logout style="display:none;">Logout</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <article class="card">
+                <p class="eyebrow">Dashboard</p>
+                <h1>User frequency and invoice analysis</h1>
+                <p class="hero-copy">
+                    This page combines the teammate's analysis idea with the current project data model:
+                    registered users drive gender and age-group charts, while stored invoices drive revenue and search features.
+                </p>
+            </article>
+
+            <aside class="card stats">
+                <div class="stat-box">
+                    <span class="stat-label">Registered Users</span>
+                    <span id="registeredUsersCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Stored Invoices</span>
+                    <span id="storedInvoicesCount" class="stat-value">0</span>
+                </div>
+            </aside>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <h2>User Frequency</h2>
+                <div id="frequencyChart" class="chart-list"></div>
+            </article>
+
+            <article class="card">
+                <h2>Gender Distribution</h2>
+                <div id="genderChart" class="chart-list"></div>
+            </article>
+
+            <article class="card">
+                <h2>Age Groups</h2>
+                <div id="ageChart" class="chart-list"></div>
+            </article>
+
+            <article class="card">
+                <h2>Invoice Features</h2>
+                <div id="invoiceFeatures" class="invoice-feature-list"></div>
+            </article>
+        </section>
+
+        <section class="card">
+            <h2>All Invoices</h2>
+            <div class="search-row">
+                <input id="searchTRN" type="text" placeholder="Search invoices by TRN">
+                <button id="searchButton" class="primary-button" type="button">Search</button>
+                <button id="clearSearchButton" class="secondary-button" type="button">Clear</button>
+            </div>
+            <div class="table-wrap">
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Invoice No.</th>
+                            <th>TRN</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Gender</th>
+                            <th>Age Group</th>
+                            <th>Open</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>User Invoice History</h2>
+            <div class="search-row">
+                <input id="userInvoiceTrn" type="text" placeholder="Enter exact TRN eg. 123-456-789">
+                <button id="loadUserInvoicesButton" class="primary-button" type="button">Load User Invoices</button>
+            </div>
+            <div id="userInvoicesResult" class="user-invoice-list"></div>
+        </section>
+    </main>
+
+    <script src="records.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

@@ -201,17 +201,10 @@ function sortProducts(sortValue) {
 
 function setupEventListeners() {
     const priceFilter = document.getElementById("priceFilter");
-    const logoutBtn = document.getElementById("logoutBtn");
     const productContainer = document.getElementById("productContainer");
 
     priceFilter.addEventListener("change", (event) => {
         sortProducts(event.target.value);
-    });
-
-    logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem("CurrentUser");
-        updateWelcomeCard();
-        showToast("You have been logged out.");
     });
 
     productContainer.addEventListener("click", (event) => {

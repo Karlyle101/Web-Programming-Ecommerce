@@ -43,8 +43,8 @@ select {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    background: rgba(255, 253, 248, 0.88);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 252, 247, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 24px;
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
@@ -53,9 +53,8 @@ select {
 .brand {
     color: var(--text);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
 }
 
 .nav-links {
@@ -69,19 +68,27 @@ select {
 .ghost-button {
     padding: 0.75rem 1rem;
     border-radius: 999px;
-    border: 1px solid transparent;
     color: var(--text);
     text-decoration: none;
     background: transparent;
     cursor: pointer;
-    transition: 0.2s ease;
+    font-weight: 600;
+    border: none;
+    transition: background 0.2s ease;
+}
+
+.nav-user {
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.96);
+    color: var(--text);
+    font-weight: 600;
 }
 
 .nav-links a:hover,
 .ghost-button:hover,
 .nav-links .active {
-    background: var(--surface-strong);
-    border-color: var(--line);
+    background: rgba(255, 248, 240, 0.96);
 }
 
 .page-shell {
