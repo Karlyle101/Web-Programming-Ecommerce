@@ -161,6 +161,21 @@ input {
     font-weight: 700;
 }
 
+.item-art {
+    width: 76px;
+    height: 76px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(184, 92, 56, 0.18), rgba(34, 111, 84, 0.14));
+}
+
+.item-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .invoice-meta p,
 .invoice-contact p {
     margin: 0.3rem 0;

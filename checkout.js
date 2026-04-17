@@ -25,6 +25,23 @@ function currency(amount) {
     }).format(amount);
 }
 
+function getProductImage(item) {
+    const imageById = {
+        1: "assets/images/products/backpack.jpeg",
+        2: "assets/images/products/headphone.jpeg",
+        3: "assets/images/products/lamp.webp",
+        4: "assets/images/products/watch.jpeg",
+        5: "assets/images/products/portable-charger.jpeg",
+        6: "assets/images/products/notebook.jpg"
+    };
+
+    if (typeof item.image === "string" && item.image.includes("/")) {
+        return item.image;
+    }
+
+    return imageById[item.id] || "";
+}
+
 function getCurrentUser() {
     return readStorage("CurrentUser", null);
 }
@@ -95,7 +112,9 @@ function renderSummary(cart) {
         const article = document.createElement("article");
         article.className = "cart-item";
         article.innerHTML = `
-            <div class="item-art" aria-hidden="true">${item.image || "🛍️"}</div>
+            <div class="item-art">
+                <img src="${getProductImage(item)}" alt="${item.name}">
+            </div>
             <div class="item-main">
                 <h3>${item.name}</h3>
                 <p class="muted">${item.description}</p>

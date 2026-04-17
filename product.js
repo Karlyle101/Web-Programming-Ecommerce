@@ -10,42 +10,42 @@ const DEFAULT_PRODUCTS = [
         name: "Campus Backpack",
         price: 4200,
         description: "Water-resistant backpack with a padded laptop sleeve and side bottle holders.",
-        image: "🎒"
+        image: "assets/images/products/backpack.jpeg"
     },
     {
         id: 2,
         name: "Wireless Headphones",
         price: 7800,
         description: "Bluetooth headphones with soft ear cushions and long battery life.",
-        image: "🎧"
+        image: "assets/images/products/headphone.jpeg"
     },
     {
         id: 3,
         name: "Study Lamp",
         price: 2600,
         description: "Compact LED desk lamp with three light modes for late-night reading.",
-        image: "💡"
+        image: "assets/images/products/lamp.webp"
     },
     {
         id: 4,
         name: "Smart Watch",
         price: 9500,
         description: "Daily activity tracker with timer, heart-rate support, and message alerts.",
-        image: "⌚"
+        image: "assets/images/products/watch.jpeg"
     },
     {
         id: 5,
         name: "Portable Charger",
         price: 3100,
         description: "Fast-charge power bank with dual USB ports for phones and tablets.",
-        image: "🔋"
+        image: "assets/images/products/portable-charger.jpeg"
     },
     {
         id: 6,
         name: "Notebook Set",
         price: 1450,
         description: "Three ruled notebooks for classes, planning, and project notes.",
-        image: "📓"
+        image: "assets/images/products/notebook.jpg"
     }
 ];
 
@@ -66,7 +66,15 @@ function seedProducts() {
         return DEFAULT_PRODUCTS;
     }
 
-    return existingProducts;
+    const normalizedProducts = existingProducts.map((storedProduct) => {
+        const defaultProduct = DEFAULT_PRODUCTS.find((product) => product.id === storedProduct.id);
+        return defaultProduct
+            ? { ...storedProduct, image: defaultProduct.image }
+            : storedProduct;
+    });
+
+    writeStorage("AllProducts", normalizedProducts);
+    return normalizedProducts;
 }
 
 function currency(amount) {
@@ -133,7 +141,9 @@ function renderProducts(products) {
         const card = document.createElement("article");
         card.className = "product-card";
         card.innerHTML = `
-            <div class="product-image" aria-hidden="true">${product.image}</div>
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
             <div class="product-body">
                 <h2>${product.name}</h2>
                 <p>${product.description}</p>

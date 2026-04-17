@@ -66,6 +66,23 @@ function getInvoiceByNumber(invoiceNumber) {
     return getAllInvoices().find((invoice) => invoice.invoiceNumber === invoiceNumber) || null;
 }
 
+function getProductImage(item) {
+    const imageById = {
+        1: "assets/images/products/backpack.jpeg",
+        2: "assets/images/products/headphone.jpeg",
+        3: "assets/images/products/lamp.webp",
+        4: "assets/images/products/watch.jpeg",
+        5: "assets/images/products/portable-charger.jpeg",
+        6: "assets/images/products/notebook.jpg"
+    };
+
+    if (typeof item.image === "string" && item.image.includes("/")) {
+        return item.image;
+    }
+
+    return imageById[item.id] || "";
+}
+
 function setSelectedInvoice(invoiceNumber) {
     writeStorage("SelectedInvoiceNumber", invoiceNumber);
 }

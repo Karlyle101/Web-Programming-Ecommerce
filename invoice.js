@@ -20,6 +20,7 @@ function renderInvoice(invoice) {
     invoice.items.forEach((item) => {
         const row = document.createElement("tr");
         row.innerHTML = `
+            <td><div class="item-art"><img src="${getProductImage(item)}" alt="${item.name}"></div></td>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
             <td>${currency(item.subtotal)}</td>
