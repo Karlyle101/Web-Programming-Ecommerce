@@ -1,121 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Cart | Register</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="auth.css">
+  <meta charset="UTF-8">
+  <title>Register</title>
 </head>
 <body>
-    <main class="shell">
-        <header class="topbar">
-            <a href="index.html">Campus Cart</a>
-            <nav>
-                <a href="index.html">Login</a>
-                <a href="register.html" class="active">Register</a>
-                <a href="product.html">Products</a>
-            </nav>
-        </header>
 
-        <section class="layout">
-            <article class="intro-card">
-                <p class="eyebrow">Person 1: Register</p>
-                <h1>Create a valid customer record</h1>
-                <p>
-                    Registration stores each user in <code>RegistrationData</code> as an array of objects, with cart and invoice placeholders ready for the next teammates.
-                </p>
-                <div class="info-list">
-                    <div>
-                        <strong>Age check</strong>
-                        User must be at least 18 years old.
-                    </div>
-                    <div>
-                        <strong>TRN rules</strong>
-                        TRN must match <code>000-000-000</code> and stay unique.
-                    </div>
-                    <div>
-                        <strong>Password rules</strong>
-                        Password must contain at least 8 characters.
-                    </div>
-                </div>
-            </article>
+<h2>Register</h2>
 
-            <article class="form-card">
-                <p class="eyebrow">Registration Form</p>
-                <h1>New account</h1>
-                <p>Complete every field before storing the record.</p>
+<form id="registerForm">
+  <input type="text" id="fname" placeholder="First Name" required><br>
+  <input type="text" id="lname" placeholder="Last Name" required><br>
+  <input type="date" id="dob" required><br>
 
-                <div id="registerMessage" class="hidden"></div>
+  <select id="gender" required>
+    <option value="">Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select><br>
 
-                <form id="registerForm" novalidate>
-                    <div class="field-grid">
-                        <div class="field">
-                            <label for="firstName">First Name</label>
-                            <input id="firstName" name="firstName" type="text" required>
-                        </div>
+  <input type="text" id="phone" placeholder="Phone" required><br>
+  <input type="email" id="email" placeholder="Email" required><br>
 
-                        <div class="field">
-                            <label for="lastName">Last Name</label>
-                            <input id="lastName" name="lastName" type="text" required>
-                        </div>
+  <input type="text" id="trn" placeholder="TRN (000-000-000)" required><br>
 
-                        <div class="field">
-                            <label for="dob">Date of Birth</label>
-                            <input id="dob" name="dob" type="date" required>
-                        </div>
+  <input type="password" id="password" placeholder="Password" required><br>
 
-                        <div class="field">
-                            <label for="gender">Gender</label>
-                            <select id="gender" name="gender" required>
-                                <option value="">Select gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
+  <button type="button" onclick="registerUser()">Register</button>
+  <button type="reset">Cancel</button>
+</form>
 
-                        <div class="field">
-                            <label for="phone">Phone Number</label>
-                            <input id="phone" name="phone" type="tel" placeholder="876-000-0000" required>
-                        </div>
+<p id="msg"></p>
 
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="email" placeholder="name@example.com" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="trn">TRN</label>
-                            <input id="trn" name="trn" type="text" placeholder="000-000-000" maxlength="11" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="password">Password</label>
-                            <input id="password" name="password" type="password" minlength="8" required>
-                        </div>
-
-                        <div class="field full">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" required>
-                        </div>
-                    </div>
-
-                    <div class="actions">
-                        <button class="primary-button" type="submit">Register</button>
-                        <button class="secondary-button" id="registerCancel" type="button">Cancel</button>
-                    </div>
-
-                    <div class="page-note">
-                        Registration also signs the user in by saving their object under <code>CurrentUser</code>.
-                    </div>
-                </form>
-            </article>
-        </section>
-    </main>
-
-    <script src="auth.js"></script>
+<script src="auth.js"></script>
 </body>
 </html>
